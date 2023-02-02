@@ -369,246 +369,6 @@
       "_type": "container"
     },
     {
-      "name": "Event",
-      "item": [
-        {
-          "name": "send",
-          "request": {
-            "description": "This endpoint allows you to send messages",
-            "url": {
-              "raw": "{{baseUrl}}/v1/apps/:app_id/events/send",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "v1",
-                "apps",
-                ":app_id",
-                "events",
-                "send"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "key": "app_id",
-                  "description": "The `id` of the app",
-                  "value": "my_app_id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{Authorization}}",
-                "type": "string"
-              }
-            ],
-            "method": "POST",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"event\": \"sample_event_1\",\n    \"data\": {\n        \"name\": \"name\",\n        \"date\": \"01 December 2022\"\n    },\n    \"user\": {\n        \"mobile\": \"+919876543210\",\n        \"email\": \"x@ravenapp.dev\",\n        \"whatsapp_mobile\": \"+919876543210\"\n    }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "name": "Success",
-              "status": "OK",
-              "code": 200,
-              "originalRequest": {
-                "description": "This endpoint allows you to send messages",
-                "url": {
-                  "raw": "{{baseUrl}}/v1/apps/:app_id/events/send",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "apps",
-                    ":app_id",
-                    "events",
-                    "send"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "app_id",
-                      "description": "The `id` of the app",
-                      "value": "my_app_id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{Authorization}}",
-                    "type": "string"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"event\": \"sample_event_1\",\n    \"data\": {\n        \"name\": \"name\",\n        \"date\": \"01 December 2022\"\n    },\n    \"user\": {\n        \"mobile\": \"+919876543210\",\n        \"email\": \"x@ravenapp.dev\",\n        \"whatsapp_mobile\": \"+919876543210\"\n    }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"id\": \"1d1ed73c-96e6-4aa3-abc2-2e9a926f773a\",\n    \"success\": true\n}",
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "name": "Event Not Found Error",
-              "status": "Event Not Found Error",
-              "code": 404,
-              "originalRequest": {
-                "description": "This endpoint allows you to send messages",
-                "url": {
-                  "raw": "{{baseUrl}}/v1/apps/:app_id/events/send",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "apps",
-                    ":app_id",
-                    "events",
-                    "send"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "app_id",
-                      "description": "The `id` of the app",
-                      "value": "my_app_id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{Authorization}}",
-                    "type": "string"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"event\": \"sample_event_1\",\n    \"data\": {\n        \"name\": \"name\",\n        \"date\": \"01 December 2022\"\n    },\n    \"user\": {\n        \"mobile\": \"+919876543210\",\n        \"email\": \"x@ravenapp.dev\",\n        \"whatsapp_mobile\": \"+919876543210\"\n    }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"success\": false,\n    \"error\": \"event not found\"\n}",
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "_type": "endpoint"
-        },
-        {
-          "name": "sendBulk",
-          "request": {
-            "url": {
-              "raw": "{{baseUrl}}/v1/apps/:app_id/events/bulk_send",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "v1",
-                "apps",
-                ":app_id",
-                "events",
-                "bulk_send"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "key": "app_id",
-                  "value": "my-app-id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "{{Authorization}}",
-                "type": "string"
-              }
-            ],
-            "method": "POST",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"event\": \"sample_event_1\",\n    \"batch\": [\n        {\n            \"user\": {\n                \"mobile\": \"+919876543210\",\n                \"email\": \"x@ravenapp.dev\",\n                \"whatsapp_mobile\": \"+919876543210\"\n            },\n            \"data\": {\n                \"name\": \"John Doe\",\n                \"date\": \"01 December 2022\"\n            }\n        },\n        {\n            \"user\": {\n                \"mobile\": \"+919876543210\",\n                \"email\": \"x@ravenapp.dev\",\n                \"whatsapp_mobile\": \"+919876543210\"\n            },\n            \"data\": {\n                \"name\": \"John Doe\",\n                \"date\": \"01 December 2022\"\n            }\n        }\n    ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "name": "Success",
-              "status": "OK",
-              "code": 200,
-              "originalRequest": {
-                "url": {
-                  "raw": "{{baseUrl}}/v1/apps/:app_id/events/bulk_send",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "apps",
-                    ":app_id",
-                    "events",
-                    "bulk_send"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "app_id",
-                      "value": "my-app-id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "{{Authorization}}",
-                    "type": "string"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"event\": \"sample_event_1\",\n    \"batch\": [\n        {\n            \"user\": {\n                \"mobile\": \"+919876543210\",\n                \"email\": \"x@ravenapp.dev\",\n                \"whatsapp_mobile\": \"+919876543210\"\n            },\n            \"data\": {\n                \"name\": \"John Doe\",\n                \"date\": \"01 December 2022\"\n            }\n        },\n        {\n            \"user\": {\n                \"mobile\": \"+919876543210\",\n                \"email\": \"x@ravenapp.dev\",\n                \"whatsapp_mobile\": \"+919876543210\"\n            },\n            \"data\": {\n                \"name\": \"John Doe\",\n                \"date\": \"01 December 2022\"\n            }\n        }\n    ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "body": "{\n    \"id\": \"1d1ed73c-96e6-4aa3-abc2-2e9a926f773a\",\n    \"success\": true\n}",
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "_type": "endpoint"
-        }
-      ],
-      "_type": "container"
-    },
-    {
       "name": "User",
       "item": [
         {
@@ -792,6 +552,240 @@
         }
       ],
       "_type": "container"
+    },
+    {
+      "name": "send",
+      "request": {
+        "description": "This endpoint allows you to send messages",
+        "url": {
+          "raw": "{{baseUrl}}/v1/apps/:app_id/events/send",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "apps",
+            ":app_id",
+            "events",
+            "send"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "app_id",
+              "description": "The `id` of the app",
+              "value": "my_app_id"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{Authorization}}",
+            "type": "string"
+          }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"event\": \"sample_event_1\",\n    \"data\": {\n        \"name\": \"name\",\n        \"date\": \"01 December 2022\"\n    },\n    \"user\": {\n        \"mobile\": \"+919876543210\",\n        \"email\": \"x@ravenapp.dev\",\n        \"whatsapp_mobile\": \"+919876543210\"\n    }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Success",
+          "status": "OK",
+          "code": 200,
+          "originalRequest": {
+            "description": "This endpoint allows you to send messages",
+            "url": {
+              "raw": "{{baseUrl}}/v1/apps/:app_id/events/send",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "apps",
+                ":app_id",
+                "events",
+                "send"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "app_id",
+                  "description": "The `id` of the app",
+                  "value": "my_app_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{Authorization}}",
+                "type": "string"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"event\": \"sample_event_1\",\n    \"data\": {\n        \"name\": \"name\",\n        \"date\": \"01 December 2022\"\n    },\n    \"user\": {\n        \"mobile\": \"+919876543210\",\n        \"email\": \"x@ravenapp.dev\",\n        \"whatsapp_mobile\": \"+919876543210\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "body": "{\n    \"id\": \"1d1ed73c-96e6-4aa3-abc2-2e9a926f773a\",\n    \"success\": true\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Event Not Found Error",
+          "status": "Event Not Found Error",
+          "code": 404,
+          "originalRequest": {
+            "description": "This endpoint allows you to send messages",
+            "url": {
+              "raw": "{{baseUrl}}/v1/apps/:app_id/events/send",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "apps",
+                ":app_id",
+                "events",
+                "send"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "app_id",
+                  "description": "The `id` of the app",
+                  "value": "my_app_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{Authorization}}",
+                "type": "string"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"event\": \"sample_event_1\",\n    \"data\": {\n        \"name\": \"name\",\n        \"date\": \"01 December 2022\"\n    },\n    \"user\": {\n        \"mobile\": \"+919876543210\",\n        \"email\": \"x@ravenapp.dev\",\n        \"whatsapp_mobile\": \"+919876543210\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "body": "{\n    \"success\": false,\n    \"error\": \"event not found\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "_type": "endpoint"
+    },
+    {
+      "name": "sendBulk",
+      "request": {
+        "url": {
+          "raw": "{{baseUrl}}/v1/apps/:app_id/events/bulk_send",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "apps",
+            ":app_id",
+            "events",
+            "bulk_send"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "app_id",
+              "value": "my-app-id"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{Authorization}}",
+            "type": "string"
+          }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"event\": \"sample_event_1\",\n    \"batch\": [\n        {\n            \"user\": {\n                \"mobile\": \"+919876543210\",\n                \"email\": \"x@ravenapp.dev\",\n                \"whatsapp_mobile\": \"+919876543210\"\n            },\n            \"data\": {\n                \"name\": \"John Doe\",\n                \"date\": \"01 December 2022\"\n            }\n        },\n        {\n            \"user\": {\n                \"mobile\": \"+919876543210\",\n                \"email\": \"x@ravenapp.dev\",\n                \"whatsapp_mobile\": \"+919876543210\"\n            },\n            \"data\": {\n                \"name\": \"John Doe\",\n                \"date\": \"01 December 2022\"\n            }\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Success",
+          "status": "OK",
+          "code": 200,
+          "originalRequest": {
+            "url": {
+              "raw": "{{baseUrl}}/v1/apps/:app_id/events/bulk_send",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "apps",
+                ":app_id",
+                "events",
+                "bulk_send"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "app_id",
+                  "value": "my-app-id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{Authorization}}",
+                "type": "string"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"event\": \"sample_event_1\",\n    \"batch\": [\n        {\n            \"user\": {\n                \"mobile\": \"+919876543210\",\n                \"email\": \"x@ravenapp.dev\",\n                \"whatsapp_mobile\": \"+919876543210\"\n            },\n            \"data\": {\n                \"name\": \"John Doe\",\n                \"date\": \"01 December 2022\"\n            }\n        },\n        {\n            \"user\": {\n                \"mobile\": \"+919876543210\",\n                \"email\": \"x@ravenapp.dev\",\n                \"whatsapp_mobile\": \"+919876543210\"\n            },\n            \"data\": {\n                \"name\": \"John Doe\",\n                \"date\": \"01 December 2022\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "body": "{\n    \"id\": \"1d1ed73c-96e6-4aa3-abc2-2e9a926f773a\",\n    \"success\": true\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "_type": "endpoint"
     }
   ]
 }
